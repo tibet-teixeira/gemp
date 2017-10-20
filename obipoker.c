@@ -21,102 +21,77 @@ int isSequencia(int* mao){
 	int i;
 	int tam = 5; // numero de cartas
 	for(i=0; i<tam; i++){
-		if(mao[0] != mao[i] - i)
+		if(mao[0] + i != mao[i])
 			return 0;
 	}
 	return 1;
 }
 
 int isQuadra(int* mao){
-	int i;
-	int sum = 0;
-	int tam = 5; // numero de cartas
-	for(i=0; i<tam; i++){
-		if(mao[0] == mao[i])
-			sum++;
-	}
-	if(sum == 4)
-		return 1;
-	return 0;
+
 }
 
 int isFullHouse(int* mao){
-	int i, j = 0;
-	int sum = 0;
-	int tam = 5; // numero de cartas
-	int rep[5]; // vetor para armazenar as cartas repetidas
 
-	for(i=0; i<tam; i++){
-		if(mao[0] == mao[i])
-			sum++;
-		
-		if(mao[0] != mao[i]){
-			rep[j] = mao[i];
-			j++;
-		}
-
-	}
-	if(sum == 3){
-		if(rep[0] == rep[1])
-			return 1;
-
-	}
-	return 0;
 }
 
 int isTrinca(int* mao){
-	int i;
-	int sum = 0;
-	int tam = 5; // numero de cartas
-	for(i=0; i<tam; i++){
-		if(mao[0] == mao[i])
-			sum++;
-	}
-	if(sum == 3)
-		return 1;
-	return 0;
+
 }
 
 int isDoisPares(int* mao){
-	int i, j = 0;
-	int sum = 0;
-	int tam = 5; // numero de cartas
-	int rep[5]; // vetor para armazenar as cartas repetidas
 
-	for(i=0; i<tam; i++){
-		if(mao[0] == mao[i])
-			sum++;
-		
-		if(mao[0] != mao[i]){
-			rep[j] = mao[i];
-			j++;
-		}
-
-	}
-	if(sum == 2){
-		if(rep[0] == rep[1])
-			return 1;
-
-	}
-	return 0;
 }
 
 int isPar(int* mao){
-	int i;
-	int sum = 0;
-	int tam = 5; // numero de cartas
-	for(i=0; i<tam; i++){
-		if(mao[0] == mao[i])
-			sum++;
-	}
-	if(sum == 2)
-		return 1;
-	return 0;
+
 }
 
 
 
 int main(void){
+
+	int mao[5];
+	int n, i, j;
+	int pontos;
+
+	scanf("%d", &n);
+	for(i=0; i<n; i++){
+		
+		//Leitura das cartas
+		for(j=0; j<5; j++){
+			scanf("%d", &mao[i]);
+		}
+		if(isSequencia(mao)){
+			pontos = 200 + mao[0];
+		}
+
+		else if(isQuadra(mao)){
+			pontos = 180 + x;
+		}
+
+		else if(isFullHouse(mao)){
+			pontos = 160 + x;
+		}
+
+		else if(isTrinca(mao)){
+			pontos = 140 + x;
+		}
+
+		else if(isDoisPares(mao)){
+			pontos = 20 + 3x + 2y;
+		}
+
+		else if(isPar(mao)){
+			pontos = x;
+		}
+
+		else{
+			pontos = 0
+		}
+		printf("Teste %d\n", i+1);
+		printf("%d\n", pontos);
+	}
 
 	
 
