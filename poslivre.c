@@ -2,18 +2,23 @@
 #include <stdlib.h>
 
 int sentinela(int w, int h, int n){
-	if(w == h && h == n && n == 0) return 1;
+	if(w == h && h == n && n == 0) 
+		return 1;
 
 	return 0;
 }
 
 int maior(int n1, int n2){
-	if(n1 > n2) return n1;
+	if(n1 > n2) 
+		return n1;
+
 	return n2;
 }
 
 int menor(int n1, int n2){
-	if(n1 < n2) return n1;
+	if(n1 < n2) 
+		return n1;
+
 	return n2;
 }
 
@@ -22,7 +27,7 @@ int main(void){
 	int w, h, n;
 	int x1, y1, x2, y2;
 	int i, j, k;
-	int sum;
+	int soma;
 	int vetor[500][500];
 
 	while(1){
@@ -43,27 +48,30 @@ int main(void){
 			x1--; y1--;
 			x2--; y2--;
 
-			for(j=menor(x1, x2); j<maior(x1, x2); j++){
-				for(k=menor(y1, y2); k<maior(y1, y2); k++){
+			for(j=menor(x1, x2); j<=maior(x1, x2); j++){
+				for(k=menor(y1, y2); k<=maior(y1, y2); k++){
 					vetor[j][k] = 1;
 				}	
 			}
 
 		}
 
-		sum = 0;
+		soma = 0;
 
 		for(j=0; j<w; j++){
 			for(k=0; k<h; k++){
-				if(vetor[j][k] == 0) sum++;
+				if(vetor[j][k] == 0) soma++;
 			}	
 		}
 
-		printf("%d\n", sum);
+		if(soma == 0)
+			printf("There is no empty spots.\n");
+		if(soma == 1)
+			printf("There is one empty spot.\n");
+		if(soma > 1)
+			printf("There are %d empty spots.\n", soma);
 
 	}
-
-
 
 	return 0;
 }
